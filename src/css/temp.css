@@ -1,0 +1,37 @@
+.breadcrumbs {
+    background-color: grey;
+}
+
+.btn.btn-username {
+    color: #fff;
+    box-shadow: none;
+}
+
+.btn-group.open .btn.btn-username {
+    box-shadow: none;
+}
+
+/*.navbar-nav>li>a {
+    line-height: 100%;
+}*/
+
+.navbar-form {
+    margin-top: 0px;
+}
+
+.login {
+    margin: 0 auto;
+    max-width: 300px;
+    min-width: 240px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+@media all and (max-width: 480px) {
+    .login {
+        width: 100%;
+        min-width: 100px;
+    }
+}

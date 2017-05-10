@@ -1,0 +1,10 @@
+<div ng-controller="FileManagerCtrl" ngf-drop="addForUpload($files)" ngf-drag-over-class="'upload-dragover'" ngf-multiple="true">
+    <div ng-include="config.tplPath + '/navbar.html'"></div>
+
+    <div class="container-fluid">
+        <div ui-view class="row"></div>
+    </div>
+
+    <div ng-include="config.tplPath + '/modals.html'"></div>
+    <div ng-include="config.tplPath + '/item-context-menu.html'"></div>
+</div>

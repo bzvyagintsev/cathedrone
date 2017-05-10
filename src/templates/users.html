@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>Пользователи</h1>
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Добавить пользователя</h3>
+    </div>
+    <div class="panel-body">
+        <form action="" class="form form-inline">
+            <div class="form-group">
+                <label for="userUsername">Username</label>
+                <input type="text" name="userUsername" id="" class="form-control" ng-model="userUsername">
+            </div>
+            <div class="form-group">
+                <label for="userPassword">Password</label>
+                <input type="password" name="userPassword" id="" class="form-control" ng-model="userPassword">
+            </div>
+            <buttun class="btn btn-primary" ng-click='createUser()'>Добавить</buttun>
+        </form>
+    </div>
+</div>
+<h2>{{pageTitle}}</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>USERNAME</th>
+        <th>PASSWORD</th>
+        <th>GROUP</th>
+        <th>ACTIONS</th>
+    </tr>
+    <tr ng-repeat='user in users'>
+        <td>{{user._id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.password}}</td>
+        <td></td>
+        <td>
+            <button ng-click='userDelete(user._id)' class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
+            <button class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></button>
+        </td>
+    </tr>
+</table>
+</div>
