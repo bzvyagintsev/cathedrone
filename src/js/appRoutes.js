@@ -1,19 +1,59 @@
-angular.module('appRoutes', ['ui.router']).config(function($stateProvider, $urlRouterProvider) {
+(function () {
+  'use strict';
 
-  $urlRouterProvider.otherwise("/files");
-  //
-  // Now set up the states
-  $stateProvider
-    .state('login', {
-      url: "/login",
-      templateUrl: "./src/templates/login.html"
-    })
-    .state('files', {
-      url: "/files",
-      templateUrl: "./src/templates/files.html"
-    })
-    .state('users', {
-      url: "/users",
-      templateUrl: "./src/templates/users.html"
+  angular
+    .module('appRoutes', ['ngRoute', 'ngCookies'])
+    .config(config)
+    .run(run);
+
+  config.$inject = ['$routeProvider', '$locationProvider'];
+  function config($routeProvider, $locationProvider) {
+    $routeProvider
+      .when('/', {
+        // controller: 'Home',
+        templateUrl: './src/templates/home.html'
+      })
+
+      .when('/files', {
+        controller: '',
+        templateUrl: './src/templates/files.html'
+      })
+      .when('/users', {
+        controller: 'usersCtrl',
+        templateUrl: "./src/templates/users.html",
+        controllerAs: 'vm'
+      })
+      .when('/login', {
+        controller: 'LoginController',
+        templateUrl: './src/templates/login.html',
+        controllerAs: 'vm'
+      })
+
+      // .when('/register', {
+      //   controller: 'RegisterController',
+      //   templateUrl: 'register/register.view.html',
+      //   controllerAs: 'vm'
+      // })
+
+      .otherwise({ redirectTo: '/login' });
+  }
+
+  run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
+  function run($rootScope, $location, $cookies, $http) {
+    // keep user logged in after page refresh
+    $rootScope.globals = $cookies.getObject('globals') || {};
+    if ($rootScope.globals.currentUser) {
+      $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
+    }
+
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+      // redirect to login page if not logged in and trying to access a restricted page
+      var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+      var loggedIn = $rootScope.globals.currentUser;
+      if (restrictedPage && !loggedIn) {
+        $location.path('/login');
+      }
     });
-});
+  }
+
+})();

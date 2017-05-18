@@ -3,14 +3,17 @@
         <div class="row">
             <div class="col-sm-8 col-md-8">
                 <div>
-                    <a class="navbar-brand" href="/">Кафедрон</a>
+                    <a class="navbar-brand" href="#/">Кафедрон</a>
                 </div>
                 <div>
+                    <!-- Вынести логику navbar в отдельный контроллер -->
                     <ul class="nav navbar-nav">
-                        <li ui-sref-active="active"><a ui-sref="files">Файлы</a>
+                        <li ng-class="{active: isActive('/files')}"><a href="#files">Файлы</a>
                         </li>
-                        <li ui-sref-active="active"><a ui-sref="users">Пользователи</a>
+                        <li ng-class="{active: isActive('/users')}"><a href="#users">Пользователи</a>
                         </li>
+                        <!--<li ui-sref-active="active"><a href="#groups">Группы</a>
+                        </li>-->
                     </ul>
                     
                 </div>
@@ -19,9 +22,10 @@
             <div class="col-sm-4 col-md-4">
                 <div class="navbar-collapse">
                     <div class="navbar-form navbar-right text-right">
-                        <div class="btn-group">
+
+                        <div class="btn-group" ng-if="currentUser">
                             <a href="" class="btn btn-username btn-sm dropdown-toggle" id="more" data-toggle="dropdown" aria-expanded="true">
-                                u111090
+                                {{currentUser.username}} <i class="glyphicon glyphicon-chevron-down"></i>
                             </a>
 
                             <ul class="dropdown-menu scrollable-menu animated fast fadeIn pull-right" role="menu" aria-labelledby="more">
@@ -31,7 +35,7 @@
                                     </a>
                                 </li>
                                 <li role="presentation" ng-show="config.allowedActions.upload">
-                                    <a href="" role="menuitem" tabindex="-1">
+                                    <a href="" role="menuitem" tabindex="-1" ng-click="logout()">
                                         <i class="glyphicon glyphicon-log-out"></i> Выйти
                                     </a>
                                 </li>

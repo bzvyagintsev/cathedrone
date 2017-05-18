@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app')
+        .module('FileManagerApp')
         .factory('FlashService', FlashService);
 
     FlashService.$inject = ['$rootScope'];

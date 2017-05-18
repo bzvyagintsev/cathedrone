@@ -1,7 +1,7 @@
-<div class="col-sm-4 col-md-3 sidebar file-tree animated slow fadeIn" ng-include="config.tplPath + '/sidebar.html'" ng-show="config.sidebar &amp;&amp; fileNavigator.history[0]">
+<div class="col-sm-3 col-md-2 sidebar file-tree animated slow fadeIn" ng-include="config.tplPath + '/sidebar.html'" ng-show="config.sidebar &amp;&amp; fileNavigator.history[0]">
     </div>
 
-    <div class="main" ng-class="config.sidebar &amp;&amp; fileNavigator.history[0] &amp;&amp; 'col-sm-8 col-md-9'">
+    <div class="main" ng-class="config.sidebar &amp;&amp; fileNavigator.history[0] &amp;&amp; 'col-sm-9 col-md-10'" ngf-drop="addForUpload($files)" ngf-drag-over-class="'upload-dragover'" ngf-multiple="true">
         <div class="clearfix">
             <div class="col-sm-8 col-md-8">
                 <div ng-show="!config.breadcrumb">
@@ -15,7 +15,7 @@
                     <div class="navbar-form navbar-right text-right">
                         
                         <div class="btn-group">
-                            <button class="btn btn-default btn dropdown-toggle" type="button" id="dropDownMenuSearch" data-toggle="dropdown" aria-expanded="true">
+                            <button class="btn btn-default btn-sm btn dropdown-toggle" type="button" id="dropDownMenuSearch" data-toggle="dropdown" aria-expanded="true">
                                 <i class="glyphicon glyphicon-search mr2"></i>
                             </button>
                             <div class="dropdown-menu animated fast fadeIn pull-right" role="menu" aria-labelledby="dropDownMenuLang">
@@ -23,28 +23,28 @@
                             </div>
                         </div>
 
-                        <button class="btn btn-default btn" ng-click="$parent.setTemplate('main-icons.html')" ng-show="$parent.viewTemplate !=='main-icons.html'" title="{{'icons' | translate}}">
+                        <button class="btn btn-default btn-sm btn" ng-click="$parent.setTemplate('main-icons.html')" ng-show="$parent.viewTemplate !=='main-icons.html'" title="{{'icons' | translate}}">
                             <i class="glyphicon glyphicon-th-large"></i>
                         </button>
 
-                        <button class="btn btn-default btn" ng-click="$parent.setTemplate('main-table.html')" ng-show="$parent.viewTemplate !=='main-table.html'" title="{{'list' | translate}}">
+                        <button class="btn btn-default btn-sm btn" ng-click="$parent.setTemplate('main-table.html')" ng-show="$parent.viewTemplate !=='main-table.html'" title="{{'list' | translate}}">
                             <i class="glyphicon glyphicon-th-list"></i>
                         </button>
 
                       <div class="btn-group">
-                            <button class="btn btn-default btn dropdown-toggle" type="button" id="more" data-toggle="dropdown" aria-expanded="true">
-                                <i class="glyphicon glyphicon-option-vertical"></i>
+                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="more" data-toggle="dropdown" aria-expanded="true">
+                                <i class="glyphicon glyphicon-plus"></i>
                             </button>
 
                             <ul class="dropdown-menu scrollable-menu animated fast fadeIn pull-right" role="menu" aria-labelledby="more">
                                 <li role="presentation" ng-show="config.allowedActions.createFolder" ng-click="modal('newfolder') && prepareNewFolder()">
                                     <a href="" role="menuitem" tabindex="-1">
-                                        <i class="glyphicon glyphicon-plus"></i> {{"new_folder" | translate}}
+                                        <i class="glyphicon glyphicon-folder-open"></i> {{"new_folder" | translate}}
                                     </a>
                                 </li>
                                 <li role="presentation" ng-show="config.allowedActions.upload" ng-click="modal('uploadfile')">
                                     <a href="" role="menuitem" tabindex="-1">
-                                        <i class="glyphicon glyphicon-cloud-upload"></i> {{"upload_files" | translate}}
+                                        <i class="glyphicon glyphicon-file"></i> {{"upload_files" | translate}}
                                     </a>
                                 </li>
                             </ul>

@@ -1,6 +1,6 @@
 (function(angular) {
     'use strict';
-    angular.module('FileManagerApp').provider('fileManagerConfig', function() {
+    angular.module('FileManagerApp').provider('fileManagerConfig', [function() {
 
         var values = {
             appName: 'cathedrone',
@@ -21,6 +21,7 @@
             extractUrl: 'bridges/php/handler.php',
             permissionsUrl: 'bridges/php/handler.php',
             basePath: '/',
+
 
             searchForm: true,
             sidebar: true,
@@ -71,5 +72,5 @@
             }
         };
 
-    });
+    }]);
 })(angular);

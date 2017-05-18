@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app')
+        .module('FileManagerApp')
         .controller('RegisterController', RegisterController);
 
     RegisterController.$inject = ['UserService', '$location', '$rootScope', 'FlashService'];

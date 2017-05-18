@@ -22,13 +22,17 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.5.0",
+    "angular": "1.5.1",
     "angular-translate": "~2.9.1",
     "bootstrap": "~3.3.2",
     "jquery": "~2.2.0",
     "bootswatch": "latest",
     "ng-file-upload": "^12.0.1",
-    "angular-ui-router": "#0.3.1",
-    "angular-cookies": "latest"    
+    "angular-ui-router": "0.3.2",
+    "angular-cookies": "latest",
+    "AngularJS-Toaster": "latest",
+    "angular-animate": "1.5",
+    "angular-cookies": "1.5" ,
+    "angular-route": "1.5"                           
   }
 }

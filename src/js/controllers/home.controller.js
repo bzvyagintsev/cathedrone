@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app')
+        .module('FileManagerApp')
         .controller('HomeController', HomeController);
 
     HomeController.$inject = ['UserService', '$rootScope'];
