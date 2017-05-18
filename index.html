@@ -100,7 +100,7 @@
 <body class="ng-cloak">
   <!--<div ng-view class="row"></div>-->
   
-  <div ng-controller="FileManagerCtrl" class="wrapper">
+  <div ng-controller="FileManagerCtrl" class="wrapper" ng-class="pageClass">
     <div ng-if="currentUser" ng-include="config.tplPath + '/navbar.html'"></div>
 
     <div class="container-fluid">

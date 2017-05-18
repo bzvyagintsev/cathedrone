@@ -21,7 +21,7 @@
             $scope.temps = [];
 
             loadCurrentUser();
-            
+
             $scope.$watch('temps', function () {
                 if ($scope.singleSelection()) {
                     $scope.temp = $scope.singleSelection();
@@ -361,13 +361,13 @@
 
 
             // Authentication
-            
+
             // $scope.fileNavigator.refresh();
 
             $rootScope.$on("callLoadCurrentUser", function () {
                 loadCurrentUser();
             });
-            
+
             function loadCurrentUser() {
                 if ($rootScope.globals.currentUser) {
                     UserService.GetByUsername($rootScope.globals.currentUser.username)
@@ -395,6 +395,10 @@
             $scope.isActive = function (viewLocation) {
                 return viewLocation === $location.path();
             };
+
+            $scope.$on('$routeChangeStart', function (next, current) {
+                $scope.pageClass = $location.path().replace('/', '');
+            });
 
 
         }]);

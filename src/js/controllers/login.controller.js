@@ -9,6 +9,8 @@
     function LoginController($location, AuthenticationService, FlashService, $rootScope) {
         var vm = this;
 
+        vm.controllerClass = 'login';
+        
         vm.login = login;
 
         vm.pageTitle = 'Вход в Кафедрон';
